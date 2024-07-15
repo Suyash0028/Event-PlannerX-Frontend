@@ -7,7 +7,7 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
     const isLandingPage = location.pathname === '/';
-    const { isLoggedIn } = useAuth();
+    const { currentUser } = useAuth();
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -41,7 +41,7 @@ const Navbar = () => {
 
     return (
         <>
-            {!isLoggedIn ?
+            {!currentUser ?
                 <nav className={navbarClasses.join(' ')}>
                     <div className="custom-container">
                         <Link to="/" className="custom-navbar-brand">

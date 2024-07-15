@@ -14,9 +14,17 @@ function EventPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const event = await createEvent({ title, description, date, location, price, image, isPrivate });
-    console.log(event);
-  };
+
+    try {
+        const event = await createEvent({ title, description, date, location, price, image, isPrivate });
+        // Handle the success, maybe show a success message or redirect
+        console.log('Event created successfully:', event);
+    } catch (error) {
+        // Handle the error, maybe show an error message to the user
+        console.error('Failed to create event:', error);
+    }
+};
+
 
   return (
     <div className="container mt-5">

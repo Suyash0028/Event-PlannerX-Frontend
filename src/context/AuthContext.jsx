@@ -1,4 +1,6 @@
+// src/context/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { fetchCurrentUser } from '../services/api';
 
 const AuthContext = createContext();
 
@@ -7,31 +9,47 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        const storedLoggedIn = localStorage.getItem('isLoggedIn');
-        return storedLoggedIn ? JSON.parse(storedLoggedIn) : false;
+    const [currentUser, setCurrentUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        return storedUser ? JSON.parse(storedUser) : null;
     });
 
-    const login = () => {
-        setIsLoggedIn(true);
-        localStorage.setItem('isLoggedIn', JSON.stringify(true));
+    const login = async (token) => {
+        localStorage.setItem('token', token);
+        const data = await fetchCurrentUser();
+        setCurrentUser(data);
+        localStorage.setItem('user', JSON.stringify(data));
     };
 
     const logout = () => {
-        setIsLoggedIn(false);
-        localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setCurrentUser(null);
     };
 
-    useEffect(() => {
-        const storedLoggedIn = localStorage.getItem('isLoggedIn');
-        if (storedLoggedIn) {
-            setIsLoggedIn(JSON.parse(storedLoggedIn));
+    const getCurrentUser = async () => {
+        try {
+            const data = await fetchCurrentUser();
+            setCurrentUser(data);
+            localStorage.setItem('user', JSON.stringify(data));
+        } catch (error) {
+            console.error('Failed to fetch current user:', error);
+            setCurrentUser(null);
         }
-    }, []);
+    };
+    
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            getCurrentUser();
+        } else {
+            setCurrentUser(null);
+        }
+    }, []);    
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+        <AuthContext.Provider value={{ currentUser, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

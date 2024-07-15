@@ -1,3 +1,4 @@
+// src/pages/LoginPage.jsx
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
@@ -18,8 +19,7 @@ function LoginPage() {
         try {
             const result = await loginUser({ email, password });
             if (result) {
-                login();
-                localStorage.setItem('token', result.token);
+                await login(result.token); // Ensure login sets the user state correctly
                 toast.success('Login successful!');
                 navigate('/dashboard');
             } else {

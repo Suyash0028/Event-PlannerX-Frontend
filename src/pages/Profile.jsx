@@ -8,13 +8,13 @@ import { toast } from 'react-toastify';
 
 const Profile = () => {
     const { logout, currentUser } = useAuth(); // Assuming useAuth provides currentUser
-    const [name, setName] = useState('');
+    const [username, setName] = useState('');
     const [email, setEmail] = useState('');
 
     useEffect(() => {
         // Load current user details into form fields when component mounts
         if (currentUser) {
-            setName(currentUser.name);
+            setName(currentUser.username);
             setEmail(currentUser.email);
         }
     }, [currentUser]);
@@ -22,7 +22,7 @@ const Profile = () => {
     const handleUpdateProfile = async (e) => {
         e.preventDefault();
         try {
-            const updatedUser = await updateProfile({ name, email });
+            const updatedUser = await updateProfile({ username, email });
             // Update currentUser with updatedUser from API if necessary
             toast.success('Profile updated successfully!');
         } catch (error) {
@@ -42,7 +42,7 @@ const Profile = () => {
                             <Form.Control
                                 type="text"
                                 placeholder="Enter name"
-                                value={name}
+                                value={username}
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
@@ -61,9 +61,6 @@ const Profile = () => {
                             Update Profile
                         </Button>
                     </Form>
-                    <Button variant="danger" onClick={logout} className="mt-3">
-                        Logout
-                    </Button>
                 </Container>
             </div>
         </div>

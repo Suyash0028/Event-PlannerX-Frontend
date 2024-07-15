@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -10,6 +11,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import CreateEvent from './pages/CreateEvent';
 import Profile from './pages/Profile';
+import MyEvents from './pages/MyEvents';
+import AllEvents from './pages/AllEvents';
 import PublicRoute from './components/PublicRoutes';
 
 const App = () => {
@@ -23,8 +26,8 @@ const App = () => {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<SignupPage />} />
                     <Route path="/dashboard" element={<ProtectedRoute element={<UserDashboard />} />} />
-                    <Route path="/my-events" element={<ProtectedRoute element={<UserDashboard />} />} />
-                    <Route path="/all-events" element={<ProtectedRoute element={<UserDashboard />} />} />
+                    <Route path="/my-events" element={<ProtectedRoute element={<MyEvents />} />} />
+                    <Route path="/all-events" element={<ProtectedRoute element={<AllEvents />} />} />
                     <Route path="/create-event" element={<ProtectedRoute element={<CreateEvent />} />} />
                     <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
                 </Routes>

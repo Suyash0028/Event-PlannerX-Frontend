@@ -3,9 +3,9 @@ import { useAuth } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ element }) => {
-    const { isLoggedIn } = useAuth();
-
-    if (!isLoggedIn) {
+    const { currentUser } = useAuth();
+    console.log("2");
+    if (!currentUser) {
         return <Navigate to="/login" />;
     }
 

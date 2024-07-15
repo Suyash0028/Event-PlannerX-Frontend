@@ -22,7 +22,7 @@ function SignupPage() {
             const result = await registerUser({ username, email, password });
             if (result) {
                 toast.success('Registration successful!');
-                login();
+                login(result.token);
                 navigate('/dashboard');
             }
         } catch (e) {

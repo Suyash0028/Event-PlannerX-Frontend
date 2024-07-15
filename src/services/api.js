@@ -18,14 +18,32 @@ export const registerUser = async (userData) => {
 };
 
 export const updateProfile = async (userData) => {
-    try {
-        const response = await api.put('/users/profile', userData);
-        console.log(response);
-        return response.data;
-    } catch (error) {
-        throw new Error(error.response.data.error);
-    }
+  try {
+    const token = localStorage.getItem('token');
+    const response = await api.put('/users/profile', userData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
 };
+
+export const fetchCurrentUser = async () => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await api.get('/users/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+}
 
 export const getEvents = async () => {
   const response = await api.get('/events');
@@ -33,11 +51,11 @@ export const getEvents = async () => {
 };
 
 export const createEvent = async (eventData) => {
-    const token = localStorage.getItem('token');
-    const response = await api.post('/events', eventData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  };
+  const token = localStorage.getItem('token');
+  const response = await api.post('/events', eventData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
