@@ -1,0 +1,88 @@
+/* AuthPage.css */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-section, .form-section {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-section {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    color: #fff; /* White text color */
+}
+
+.form-section {
+    background-color: #fff; /* White background */
+}
+
+.form-control {
+    margin-bottom: 1.5rem;
+    padding: 12px;
+    border: 1px solid #ced4da; /* Light border color */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Focus border color */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus box shadow */
+}
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    color: #fff; /* White text color */
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.message-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.message-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #f0f0f0; /* Light grey text color */
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .message-section, .form-section {
+        padding: 2rem;
+    }
+}

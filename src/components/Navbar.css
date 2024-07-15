@@ -1,0 +1,53 @@
+/* Navbar.css */
+
+.custom-navbar {
+    padding: 10px 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.3s ease;
+    position: fixed;
+    top: 0;
+    background: transparent; /* Transparent background initially */
+}
+
+.custom-navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8); /* Background color when scrolled */
+}
+
+.custom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.custom-navbar-brand {
+    font-size: 1.5rem;
+    color: #fff; /* Text color */
+    text-decoration: none;
+}
+
+.custom-navbar-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.custom-nav-link {
+    color: #fff; /* Text color */
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.custom-nav-link:hover {
+    color: #ff6f61; /* Primary accent color on hover */
+}
+
+.gradient-bg .custom-navbar {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+}
+
+.light-black-bg .custom-navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Light black background */
+}
