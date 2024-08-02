@@ -91,7 +91,7 @@ const EditEvent = () => {
                             <Form.Control
                                 type="date"
                                 name="date"
-                                value={eventDetails.date}
+                                value={eventDetails.date.split('T')[0]}
                                 onChange={handleChange}
                             />
                         </Form.Group>

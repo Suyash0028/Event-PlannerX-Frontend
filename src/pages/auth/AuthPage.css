@@ -1,12 +1,9 @@
-/* AuthPage.css */
-
 .auth-page {
-   
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8f9fa; /* Light grey background */
-    margin: 150px 0 50px 0; /* Leave space for the navbar */
+    background-color: #f8f9fa;
+    margin: 150px 0 50px 0;
 }
 
 .auth-container {
@@ -27,35 +24,35 @@
 }
 
 .message-section {
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
-    color: #fff; /* White text color */
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
 }
 
 .form-section {
-    background-color: #fff; /* White background */
+    background-color: #fff;
 }
 
 .form-control {
     margin-bottom: 1.5rem;
     padding: 12px;
-    border: 1px solid #ced4da; /* Light border color */
+    border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .form-control:focus {
-    border-color: #007bff; /* Focus border color */
+    border-color: #007bff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus box shadow */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .custom-button {
     width: 100%;
     padding: 12px 20px;
-    background-color: #007bff; /* Primary button color */
+    background-color: #007bff;
     border: none;
-    color: #fff; /* White text color */
+    color: #fff;
     font-size: 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -63,7 +60,7 @@
 }
 
 .custom-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
 }
 
 .message-section h2 {
@@ -75,7 +72,7 @@
 .message-section p {
     font-size: 1.2rem;
     line-height: 1.5;
-    color: #f0f0f0; /* Light grey text color */
+    color: #f0f0f0;
 }
 
 @media (max-width: 768px) {

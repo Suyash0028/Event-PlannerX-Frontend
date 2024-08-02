@@ -1,17 +1,16 @@
-/* EditEvent.css */
 .edit-event-container {
-    margin-top: 20px;
-  }
-  
-  .edit-event-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .edit-event-container .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .edit-event-container .btn {
-    margin-top: 10px;
-  }
+  margin-top: 20px;
+}
+
+.edit-event-container h2 {
+  margin-bottom: 20px;
+}
+
+.edit-event-container .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-event-container .btn {
+  margin-top: 10px;
+}
   

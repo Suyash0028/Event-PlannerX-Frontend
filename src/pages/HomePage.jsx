@@ -32,7 +32,6 @@ const HomePage = () => {
 
     return (
         <div className="homepage-content">
-            {/* Hero Section */}
             <div className="hero-section">
                 <div className="container">
                     <h1 className="display-4">Welcome to Event-PlannerX</h1>
@@ -45,7 +44,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Purpose Section */}
             <div className="container py-5">
                 <h2 className="text-center mb-4">Our Purpose</h2>
                 <p className="text-center">
@@ -53,7 +51,6 @@ const HomePage = () => {
                 </p>
             </div>
 
-            {/* Features Section */}
             <div className="container py-5">
                 <h2 className="text-center mb-4">Core Features</h2>
                 <div className="row">
@@ -114,7 +111,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Testimonials Section */}
             <div className="testimonials-section">
                 <div className="container">
                     <h2 className="text-center mb-4">User Stories</h2>

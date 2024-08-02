@@ -1,17 +1,16 @@
-/* UserDashboard.css */
 .dashboard {
     display: flex;
     height: 100vh;
-    overflow: hidden; /* Prevents overflow issues */
+    overflow: hidden;
 }
 
 
 .main-content {
     flex: 1;
     padding: 20px;
-    margin-left: 250px; /* Adjust based on sidebar width */
+    margin-left: 250px;
     background-color: #f8f9fa;
-    transition: margin-left 0.3s ease; /* Smooth transition for sidebar collapse */
+    transition: margin-left 0.3s ease;
 }
 
 h1 {
@@ -22,7 +21,7 @@ h1 {
 .dashboard-overview {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    flex-wrap: wrap; 
     margin-bottom: 1rem;
 }
 
@@ -34,7 +33,7 @@ h1 {
     flex: 1;
     margin: 0.5rem;
     text-align: center;
-    min-width: 200px; /* Ensures cards don’t shrink too much */
+    min-width: 200px;
 }
 
 .overview-card h3 {
@@ -49,17 +48,17 @@ h1 {
 
 @media (max-width: 768px) {
     .sidebar {
-        width: 60px; /* Narrow width for small screens */
+        width: 60px; 
         position: absolute;
         transition: width 0.3s ease;
     }
 
     .main-content {
-        margin-left: 60px; /* Adjust based on collapsed sidebar width */
+        margin-left: 60px;
     }
 
     .overview-card {
-        min-width: 150px; /* Smaller minimum width for cards */
+        min-width: 150px;
         margin: 0.25rem;
     }
 }

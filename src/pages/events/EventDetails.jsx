@@ -69,7 +69,7 @@ const EventDetails = () => {
             <div className="main-content">
                 <Container>
                     <h2>Event Details</h2>
-                    <div className="events-container">
+                    <div className="events-detail-container">
                         <div className="event-details-card">
                             <img className="event-img" src={eventIMG} alt={event.title} />
                             <div className="event-info">

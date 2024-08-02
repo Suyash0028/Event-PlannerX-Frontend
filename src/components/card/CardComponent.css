@@ -10,7 +10,7 @@
   border: 1px solid #ddd;
   border-radius: 15px;
   overflow: hidden;
-  width: 250px; /* Fixed width */
+  width: 250px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
@@ -38,10 +38,9 @@
   color: #555;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
   .card-container {
-      width: 300px; /* Adjust width for medium screens */
+      width: 300px;
   }
 }
 
@@ -52,17 +51,17 @@
   }
   
   .card-container {
-      width: 100%; /* Full width for smaller screens */
+      width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .events-container {
       flex-direction: column;
-      align-items: center; /* Center cards on smaller screens */
+      align-items: center;
   }
   
   .card-container {
-      width: 90%; /* Adjust width for very small screens */
+      width: 90%;
   }
 }

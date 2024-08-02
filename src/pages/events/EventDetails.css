@@ -5,14 +5,14 @@
 .main-content {
     flex: 1;
     padding: 20px;
-    margin-left: 250px; /* Adjust based on sidebar width */
+    margin-left: 250px;
     background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.events-container {
+.events-detail-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -92,7 +92,7 @@
 
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 60px; /* Adjust based on collapsed sidebar width */
+        margin-left: 60px;
     }
 
     .event-details-card {

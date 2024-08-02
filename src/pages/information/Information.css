@@ -4,6 +4,6 @@
 
 @media (min-width: 992px) {
     .mt-5 {
-        margin-top: 100px; /* Adjust margin-top for space for navbar */
+        margin-top: 100px;
     }
 }

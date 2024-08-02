@@ -1,118 +1,117 @@
-/* Sidebar.css */
 .sidebar {
-    width: 250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.sidebar nav ul li a.active svg {
+  color: #fff;
+}
+
+.sidebar nav ul li a svg {
+  margin-right: 10px;
+}
+
+.link-text {
+  margin-left: 10px;
+}
+
+.logout-button {
+  background-color: #f44;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  border-radius: 4px;
+}
+
+.logout-button svg {
+  margin: 0;
+  font-size: 20px;
+}
+
+.link-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
     height: 100vh;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
+    align-items: center;
   }
-  
+
   .sidebar nav ul {
-    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
     margin: 0;
   }
-  
+
   .sidebar nav ul li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
-  
+
   .sidebar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    justify-content: center;
   }
-  
-  .sidebar nav ul li a.active {
-    background-color: #007bff; /* Blue background for active link */
-    color: #fff; /* White text color for better contrast */
+
+  .sidebar nav ul li a .link-text {
+    display: none;
   }
-  
-  .sidebar nav ul li a.active svg {
-    color: #fff; /* Ensures icon color matches text */
-  }
-  
-  .sidebar nav ul li a svg {
-    margin-right: 10px;
-  }
-  
-  .link-text {
-    margin-left: 10px;
-  }
-  
+
   .logout-button {
-    background-color: #f44; /* Red background by default */
-    border: none;
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the content */
-    margin-top: auto; /* Push it to the bottom */
-    border-radius: 4px; /* Add border radius for consistency */
+    background-color: transparent;
+    padding: 10px 0;
   }
-  
+
   .logout-button svg {
-    margin: 0; /* Remove any margin for small screens */
-    font-size: 20px; /* Ensure the icon is large enough to be visible */
+    color: #fff;
   }
-  
-  .link-text {
-    display: inline;
+
+  .logout-button .link-text {
+    display: none;
   }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 60px; /* Narrow width for icon-only view */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .sidebar nav ul {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .sidebar nav ul li {
-      margin: 10px 0;
-    }
-  
-    .sidebar nav ul li a {
-      justify-content: center;
-    }
-  
-    .sidebar nav ul li a .link-text {
-      display: none;
-    }
-  
-    .logout-button {
-      background-color: transparent; /* Remove background color on small screens */
-      padding: 10px 0; /* Adjust padding for better fit */
-    }
-  
-    .logout-button svg {
-      color: #fff; /* Red icon color for visibility */
-    }
-  
-    .logout-button .link-text {
-      display: none; /* Hide text for small screens */
-    }
-  }
-  
+}

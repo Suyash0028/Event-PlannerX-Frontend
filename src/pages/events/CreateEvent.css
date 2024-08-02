@@ -1,23 +1,22 @@
-/* src/pages/CreateEvent.css */
 .dashboard {
     display: flex;
-    flex-direction: column; /* Adjust to ensure proper layout */
+    flex-direction: column;
     height: fit-content;
 }
 
 .main-content {
     flex: 1;
     padding: 20px;
-    margin-left: 250px; /* Adjust based on sidebar width */
+    margin-left: 250px;
     background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Ensure content starts from top */
-    padding-bottom: 80px; /* Add enough padding for the footer */
+    justify-content: flex-start;
+    padding-bottom: 80px;
 }
 
 .create-event-form {
-    max-width: 600px; /* Limit the width */
+    max-width: 600px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -32,15 +31,14 @@
     width: 100%;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 60px; /* Adjust based on collapsed sidebar width */
-        padding-bottom: 80px; /* Adjust for smaller screens */
+        margin-left: 60px;
+        padding-bottom: 80px;
     }
 
     .create-event-form {
-        padding: 10px; /* Adjust padding for smaller screens */
-        max-width: 100%; /* Ensure full width on small screens */
+        padding: 10px;
+        max-width: 100%;
     }
 }
