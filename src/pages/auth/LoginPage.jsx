@@ -1,11 +1,10 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { loginUser } from '../services/api';
+import { loginUser } from '../../services/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import './AuthPage.css';
 
 function LoginPage() {
@@ -19,9 +18,9 @@ function LoginPage() {
         try {
             const result = await loginUser({ email, password });
             if (result) {
-                await login(result.token); // Ensure login sets the user state correctly
+                await login(result.token);
                 toast.success('Login successful!');
-                navigate('/dashboard');
+                result.user.isAdmin ? navigate('/admin-dashboard') : navigate('/user-dashboard');
             } else {
                 toast.error('Login failed. Please check your credentials.');
             }
@@ -71,7 +70,7 @@ function LoginPage() {
                                 />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" className="mt-3">
+                            <Button variant="primary" type="submit" className="mt-3 custom-button">
                                 Login
                             </Button>
                             <div className="mt-3">

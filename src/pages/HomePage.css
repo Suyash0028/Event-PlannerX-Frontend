@@ -85,21 +85,3 @@
 .text-center {
     text-align: center !important;
 }
-
-.footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0;
-}
-
-.footer a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-

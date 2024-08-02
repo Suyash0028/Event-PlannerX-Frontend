@@ -1,9 +1,8 @@
-/* src/pages/Profile.css */
-
+/* src/pages/CreateEvent.css */
 .dashboard {
     display: flex;
-    height: 100vh;
-    overflow: hidden;
+    flex-direction: column; /* Adjust to ensure proper layout */
+    height: fit-content;
 }
 
 .main-content {
@@ -12,28 +11,24 @@
     margin-left: 250px; /* Adjust based on sidebar width */
     background-color: #f8f9fa;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure content starts from top */
+    padding-bottom: 80px; /* Add enough padding for the footer */
 }
 
-.profile-card {
+.create-event-form {
     max-width: 600px; /* Limit the width */
-    width: 100%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-card h2 {
-    margin-bottom: 20px;
-}
-
-.profile-card .form-control {
+.create-event-form .form-control {
     margin-bottom: 15px;
 }
 
-.profile-card .btn {
+.create-event-form .btn {
     width: 100%;
 }
 
@@ -41,11 +36,11 @@
 @media (max-width: 768px) {
     .main-content {
         margin-left: 60px; /* Adjust based on collapsed sidebar width */
-        padding: 10px;
+        padding-bottom: 80px; /* Adjust for smaller screens */
     }
-    
-    .profile-card {
-        padding: 15px;
+
+    .create-event-form {
+        padding: 10px; /* Adjust padding for smaller screens */
         max-width: 100%; /* Ensure full width on small screens */
     }
 }

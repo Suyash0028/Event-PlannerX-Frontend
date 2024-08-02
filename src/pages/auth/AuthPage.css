@@ -1,11 +1,12 @@
 /* AuthPage.css */
 
 .auth-page {
-    min-height: 100vh;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f8f9fa; /* Light grey background */
+    margin: 150px 0 50px 0; /* Leave space for the navbar */
 }
 
 .auth-container {
@@ -49,7 +50,7 @@
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus box shadow */
 }
 
-button {
+.custom-button {
     width: 100%;
     padding: 12px 20px;
     background-color: #007bff; /* Primary button color */
@@ -61,7 +62,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.custom-button:hover {
     background-color: #0056b3; /* Darker shade on hover */
 }
 

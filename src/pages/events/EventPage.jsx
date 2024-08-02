@@ -1,6 +1,5 @@
-// src/pages/EventPage.jsx
 import { useState } from 'react';
-import { createEvent } from '../services/api';
+import { createEvent } from '../../services/api';
 import { Form, Button } from 'react-bootstrap';
 
 function EventPage() {
@@ -17,10 +16,8 @@ function EventPage() {
 
     try {
         const event = await createEvent({ title, description, date, location, price, image, isPrivate });
-        // Handle the success, maybe show a success message or redirect
         console.log('Event created successfully:', event);
     } catch (error) {
-        // Handle the error, maybe show an error message to the user
         console.error('Failed to create event:', error);
     }
 };

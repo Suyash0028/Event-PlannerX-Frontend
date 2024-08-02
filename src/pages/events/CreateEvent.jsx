@@ -1,11 +1,9 @@
-// src/pages/CreateEvent.jsx
-
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { createEvent as createEventAPI } from '../services/api';
+import { createEvent as createEventAPI } from '../../services/api';
 import './CreateEvent.css';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 const CreateEvent = () => {
     const [title, setTitle] = useState('');

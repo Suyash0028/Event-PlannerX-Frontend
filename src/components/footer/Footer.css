@@ -1,0 +1,60 @@
+/* src/components/Footer/Footer.css */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px; /* Adjust based on sidebar width */
+  background-color: #f8f9fa;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #f8f9fa; /* Dark background for contrast */
+  color: #333;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  margin-top: auto; /* Push footer to the bottom of the page */
+}
+
+.footer-content {
+  max-width: 1200px; /* Optional: Limit the width for large screens */
+  margin: 0 auto; /* Center align content */
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+      margin-left: 60px; /* Adjust based on collapsed sidebar width */
+  }
+  
+  .footer {
+      padding: 15px;
+      margin-left: 40px;
+  }
+}

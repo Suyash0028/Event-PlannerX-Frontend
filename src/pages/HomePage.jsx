@@ -1,5 +1,3 @@
-// src/pages/HomePage.jsx
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
@@ -8,9 +6,10 @@ import StarIcon from '@mui/icons-material/Star';
 import SecurityIcon from '@mui/icons-material/Security';
 import PublicIcon from '@mui/icons-material/Public';
 import EmailIcon from '@mui/icons-material/Email';
-import { getEvents } from '../services/api'; // Import the getEvents function
-import './HomePage.css'; // Custom CSS for additional styling
-import Card from 'react-bootstrap/Card';
+import { getEvents } from '../services/api';
+import './HomePage.css';
+import CardComponent from '../components/card/CardComponent';
+import Spinner from '../components/spinner/Spinner';
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -27,6 +26,9 @@ const HomePage = () => {
     const handleGetStartedClick = () => {
         navigate('/signup');
     };
+    if (!events) {
+        return <Spinner />;
+    }
 
     return (
         <div className="homepage-content">
@@ -141,41 +143,8 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* New Section: All Events */}
-            <div className="container all-events-section">
-                {events.filter(e => !e.isPrivate).length > 0 ? <h2 className="text-center mb-4">All Events</h2> : <></>}
-                <div className="row">
-                    {events.filter(e => !e.isPrivate).map(event => (
-                        <Card
-                            bg="light"
-                            key={event._id}
-                            text="dark"
-                            style={{ width: '18rem' }}
-                            className="mb-2"
-                        >
-                            <Card.Header>{event.title}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Card Title </Card.Title>
-                                <Card.Text>{event.description}</Card.Text>
-                                <Card.Text>{new Date(event.date).toLocaleDateString()}</Card.Text>
-                                <Card.Text>{event.location}</Card.Text>
-                            </Card.Body>
-                            <Card.Footer>Organizer: {event.organizer.username}</Card.Footer>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-            {/* Footer */}
-            <footer className="footer">
-                <div className="container text-center py-3">
-                    <p>© 2024 Event-PlannerX. All rights reserved.</p>
-                    <p>
-                        <a href="/about">About Us</a> |
-                        <a href="/contact">Contact</a> |
-                        <a href="/privacy">Privacy Policy</a>
-                    </p>
-                </div>
-            </footer>
+            {events.filter(e => !e.isPrivate).length > 0 ? <h2 className="text-center mb-4">All Events</h2> : <></>}
+            <CardComponent events={events.filter(e => !e.isPrivate)} />
         </div>
     );
 };

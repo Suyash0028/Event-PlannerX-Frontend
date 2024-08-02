@@ -1,0 +1,104 @@
+.dashboard {
+    display: flex;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px; /* Adjust based on sidebar width */
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-details-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.event-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.ticket-purchase {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.invoice-header h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+.invoice-header p {
+    margin: 5px 0;
+}
+
+.invoice-details {
+    margin: 20px 0;
+}
+
+.invoice-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.invoice-item p {
+    margin: 0;
+}
+
+.invoice-item.total {
+    border-top: 2px solid #007bff;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.quantity-input {
+    max-width: 120px;
+}
+.event-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 60px; /* Adjust based on collapsed sidebar width */
+    }
+
+    .event-details-card {
+        flex-direction: column;
+    }
+    .ticket-purchase {
+        width: 100%;
+    }
+}

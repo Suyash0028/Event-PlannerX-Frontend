@@ -1,0 +1,17 @@
+/* EditUser.css */
+.edit-user-container {
+  margin-top: 20px;
+}
+
+.edit-user-container h2 {
+  margin-bottom: 20px;
+}
+
+.edit-user-container .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-user-container .btn {
+  margin-top: 10px;
+}
+  

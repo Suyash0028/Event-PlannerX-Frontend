@@ -1,13 +1,12 @@
-// src/pages/SignupPage.jsx
 import { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { registerUser } from '../services/api';
+import { registerUser } from '../../services/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AuthPage.css';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 function SignupPage() {
     const [username, setUsername] = useState('');
@@ -23,7 +22,7 @@ function SignupPage() {
             if (result) {
                 toast.success('Registration successful!');
                 login(result.token);
-                navigate('/dashboard');
+                navigate('/user-dashboard');
             }
         } catch (e) {
             toast.error('Registration failed. Please try again.');
@@ -81,7 +80,7 @@ function SignupPage() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="mt-3">
+              <Button variant="primary" type="submit" className="mt-3 custom-button">
                 Sign Up
               </Button>
               <div className="mt-3">

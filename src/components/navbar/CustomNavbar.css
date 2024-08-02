@@ -11,7 +11,7 @@
 }
 
 .custom-navbar.scrolled {
-    background: rgba(0, 0, 0, 0.8); /* Background color when scrolled */
+    background: rgba(0, 0, 0, 0.8); /* Background color when scrolled or not on landing page */
 }
 
 .custom-container {
@@ -32,10 +32,11 @@
 .custom-navbar-links {
     display: flex;
     gap: 1rem;
+    margin-left: auto; /* Move links to the right */
 }
 
 .custom-nav-link {
-    color: #fff; /* Text color */
+    color: #fff !important; /* Text color */
     font-size: 1rem;
     text-decoration: none;
 }
@@ -44,10 +45,23 @@
     color: #ff6f61; /* Primary accent color on hover */
 }
 
-.gradient-bg .custom-navbar {
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+/* Additional Styling for Main Content */
+.content-container {
+    padding-top: 70px; /* Adjust this value according to your navbar height */
+    min-height: calc(100vh - 70px - 100px); /* Adjust the height to ensure footer stays at the bottom */
+    display: flex;
+    flex-direction: column;
 }
 
-.light-black-bg .custom-navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Light black background */
+
+.logo {
+    height: 60px; /* Adjust size as needed */
+    width: auto;
+}
+
+/* Media Queries for Responsive Navbar */
+@media (max-width: 992px) {
+    .custom-navbar-links {
+        display: none; /* Hide links in small screens */
+    }
 }

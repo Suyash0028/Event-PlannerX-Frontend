@@ -1,6 +1,6 @@
-// src/context/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { fetchCurrentUser } from '../services/api';
+import { getItemWithExpiry, setItemWithExpiry } from '../services/localStorageService';
 
 const AuthContext = createContext();
 
@@ -10,15 +10,15 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(() => {
-        const storedUser = localStorage.getItem('user');
-        return storedUser ? JSON.parse(storedUser) : null;
+        const storedUser = getItemWithExpiry('user');
+        return storedUser; 
     });
 
     const login = async (token) => {
-        localStorage.setItem('token', token);
+        setItemWithExpiry('token', token, 3600000);
         const data = await fetchCurrentUser();
         setCurrentUser(data);
-        localStorage.setItem('user', JSON.stringify(data));
+        setItemWithExpiry('user', data, 3600000);
     };
 
     const logout = () => {
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const data = await fetchCurrentUser();
             setCurrentUser(data);
-            localStorage.setItem('user', JSON.stringify(data));
+            setItemWithExpiry('user', data, 3600000);
         } catch (error) {
             console.error('Failed to fetch current user:', error);
             setCurrentUser(null);
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = getItemWithExpiry('token');
         if (token) {
             getCurrentUser();
         } else {
