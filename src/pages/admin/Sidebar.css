@@ -1,117 +1,116 @@
 .admin-sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.admin-sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-sidebar nav ul li a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.admin-sidebar nav ul li a.active svg {
+  color: #fff;
+}
+
+.admin-sidebar nav ul li a svg {
+  margin-right: 10px;
+}
+
+.link-text {
+  margin-left: 10px;
+}
+
+.logout-button {
+  background-color: #f44;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  border-radius: 4px;
+}
+
+.logout-button svg {
+  margin: 0;
+  font-size: 20px;
+}
+
+.link-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
+    align-items: center;
   }
-  
+
   .admin-sidebar nav ul {
-    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
     margin: 0;
   }
-  
+
   .admin-sidebar nav ul li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
-  
+
   .admin-sidebar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .admin-sidebar nav ul li a.active {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .admin-sidebar nav ul li a.active svg {
-    color: #fff;
-  }
-  
-  .admin-sidebar nav ul li a svg {
-    margin-right: 10px;
-  }
-  
-  .link-text {
-    margin-left: 10px;
-  }
-  
-  .logout-button {
-    background-color: #f44;
-    border: none;
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: auto;
-    border-radius: 4px;
   }
-  
+
+  .admin-sidebar nav ul li a .link-text {
+    display: none;
+  }
+
+  .logout-button {
+    background-color: transparent;
+    padding: 10px 0;
+  }
+
   .logout-button svg {
-    margin: 0;
-    font-size: 20px;
+    color: #fff;
   }
-  
-  .link-text {
-    display: inline;
+
+  .logout-button .link-text {
+    display: none;
   }
-  
-  @media (max-width: 768px) {
-    .admin-sidebar {
-        width: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-  
-    .admin-sidebar nav ul {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-  
-    .admin-sidebar nav ul li {
-        margin: 10px 0;
-    }
-  
-    .admin-sidebar nav ul li a {
-        justify-content: center;
-    }
-  
-    .admin-sidebar nav ul li a .link-text {
-        display: none;
-    }
-  
-    .logout-button {
-        background-color: transparent;
-        padding: 10px 0;
-    }
-  
-    .logout-button svg {
-        color: #fff;
-    }
-  
-    .logout-button .link-text {
-        display: none;
-    }
-  }
-  
+}

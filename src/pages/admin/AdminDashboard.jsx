@@ -5,6 +5,8 @@ import './AdminDashboard.css';
 import Sidebar from './Sidebar';
 import { deleteEvent, deleteUser, getEvents, getUsers } from '../../services/api';
 import ConfirmationModal from '../../components/modal/ConfirmationModal';
+import Spinner from '../../components/spinner/Spinner';
+
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const [events, setEvents] = useState([]);
@@ -34,11 +36,11 @@ const AdminDashboard = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      if(selectedAction){
+      if (selectedAction) {
         await deleteUser(selectedUser._id);
         setUsers(users.filter(user => user._id !== selectedUser._id));
       }
-      else{
+      else {
         await deleteEvent(selectedEvent._id);
         setEvents(events.filter(event => event._id !== selectedEvent._id));
       }
@@ -65,7 +67,7 @@ const AdminDashboard = () => {
           <Row className='mt-5'>
             <Col md={6}>
               <h4>Users</h4>
-              <Table striped bordered hover>
+              {!users ? <Spinner /> : <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -92,11 +94,11 @@ const AdminDashboard = () => {
                     </tr>
                   ))}
                 </tbody>
-              </Table>
+              </Table>}
             </Col>
             <Col md={6}>
               <h4>Events</h4>
-              <Table striped bordered hover>
+              {!events ? <Spinner /> : <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Title</th>
@@ -127,7 +129,7 @@ const AdminDashboard = () => {
                     </tr>
                   ))}
                 </tbody>
-              </Table>
+              </Table>}
             </Col>
           </Row>
           <ConfirmationModal
