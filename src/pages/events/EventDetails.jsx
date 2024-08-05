@@ -8,6 +8,7 @@ import { getEventById } from '../../services/api';
 import eventIMG from '/upcoming-events.jpg'
 import { useAuth } from '../../context/AuthContext';
 import Spinner from '../../components/spinner/Spinner';
+import emailjs from 'emailjs-com';
 
 const EventDetails = () => {
     const { eventId } = useParams();
@@ -38,8 +39,48 @@ const EventDetails = () => {
     const taxAmount = totalPrice * taxRate;
     const totalAmountWithTax = totalPrice + taxAmount;
 
-    const handleGetTickets = () => {
-        toast.success(`You have successfully purchased ${quantity} tickets!`);
+    const sendTicketEmail = (ticketDetails) => {
+        const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+        const templateParams = {
+            to_email: currentUser.email,
+            from_email: adminEmail,
+            event_name: ticketDetails.eventName,
+            event_date: ticketDetails.eventDate,
+            event_time: ticketDetails.eventTime,
+            event_location: ticketDetails.eventLocation,
+            ticket_price: ticketDetails.price,
+            ticket_quantity: ticketDetails.ticket_quantity,
+            total_Price: ticketDetails.total_Price
+        };
+        const serviceKey = import.meta.env.VITE_SERVICE_KEY;
+        const templateKey = import.meta.env.VITE_TEMPLATE_KEY;
+        const userId = import.meta.env.VITE_USER_ID;
+
+        emailjs.send(serviceKey, templateKey, templateParams, userId)
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                toast.success(`You have successfully purchased ${quantity} tickets!`);
+                navigate('/');
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+                toast.error('Failed to send ticket details. Please try again later.');
+            });
+    };
+
+
+    const handleGetTickets = (event) => {
+        const ticketDetails = {
+            eventName: event.title,
+            eventDate: formatDate(event.date),
+            eventTime: formatTime(event.time),
+            eventLocation: event.location,
+            price: event.price.toFixed(2),
+            ticket_quantity: quantity,
+            total_Price: totalAmountWithTax.toFixed(2)
+        };
+
+        sendTicketEmail(ticketDetails);
     };
 
     const formatDate = (dateString) => {
@@ -119,7 +160,7 @@ const EventDetails = () => {
                                         <p><strong>${totalAmountWithTax.toFixed(2)}</strong></p>
                                     </div>
                                 </div>
-                                <Button variant="success" onClick={handleGetTickets} className="mt-4">
+                                <Button variant="success" onClick={()=>handleGetTickets(event)} className="mt-4">
                                     Get Tickets
                                 </Button>
                             </Form>
